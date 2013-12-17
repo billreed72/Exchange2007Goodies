@@ -6,29 +6,40 @@ Turing the quota down with/without turning off local delivery check box... ick!<
 Newer/Better Option
 ===================
 <b>Requirements:</b><br>
+
 <ol>
 <li>stop local delivery<br>
 <li>stop user from sending<br>
 <li>Allow users to access old Exchange mail but not send<br>
 </ol>
+
 <br>
 <b>Step 1:</b> Create a new Distribution Group<br>
+
 <ul>
 <li>Members will be restricted from sending emails<br>
 <li>Must be a universal group<br>
 </ul>
+
 <br>
 <b>Powershell</b><br>
 <blockquote>new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’</blockquote>
 
 <b>Step 2:</b> Create a new Transport Rule<br>
+
 <ul>
 <li>Conditions:
+</ul>
+
 <ul>
 <li>From members of a distribution list<br>
 <li>Choose the new distribution group<br>
 </ul>
+
+<ul>
 <li>Actions:
+</ul>
+
 <ul>
 <li>Send rejection message to sender with enhanced status code<ul><br>
 Message: <br>
