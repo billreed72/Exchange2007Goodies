@@ -9,7 +9,7 @@ Newer/Better Option
 <ol><li>stop local delivery
 <li>stop user from sending
 <li>Allow users to access old Exchange mail but not send</ol><br>
-<b>Step 1:</b> Create a new Distribution Group<br>
+<b><u>Step 1:</u></b> Create a new Distribution Group<br>
 <ul><li>Members will be restricted from sending emails
 <li>Must be a universal group<br></ul><br>
 <b>Powershell</b><br>
@@ -17,7 +17,7 @@ Newer/Better Option
 new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’
 </blockquote>
 <br>
-<b>Step 2:</b> Create a new Transport Rule<br>
+<b><u>Step 2:</u></b> Create a new Transport Rule<br>
 <b>Conditions:</b><br>
 <ul><li>From members of a distribution list
 <li>Choose the new distribution group</ul><br>
@@ -30,7 +30,7 @@ You are no longer authorized to send email from this system.<br>
 For support, contact our helpdesk at 714-555-1234.”<br></blockquote><br>
 <b>Powershell</b><br>
 <blockquote>New-TransportRule -Name ’PreventSending’ -Comments ‘’ -Priority ‘0’	-Enabled $true -FromMemberOf ‘NoSendingMailForYou@contoso.com’ -RejectMessageReasonText ‘Please login to your new Google Apps account. The URL is http://www.google.com. You are no longer authorized to send email from this system. For support, contact our helpdesk at 714-555-1234.’ -RejectMessageEnhancedStatusCode ‘5.7.1’</blockquote><br>
-<b>Step 3:</b> Add Members from a CSV file to NoSendingMailForYou Distribution Group<br>
+<b><u>Step 3:</u></b> Add Members from a CSV file to NoSendingMailForYou Distribution Group<br>
 <b>Powershell</b><br>
 <blockquote>Import-CSV FileName.csv | ForEach {Add-DistributionGroupMember -Identity "NoSendingMailForYou" -Member $_.Name}</blockquote>
 
