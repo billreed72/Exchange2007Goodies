@@ -19,21 +19,21 @@ Newer/Better Option
 
 <b>Step 2:</b> Create a new Transport Rule<br>
  - Conditions:	From members of a distribution list<br>
- 		- Choose the new distribution group<br>
+ 		Choose the new distribution group<br>
  - Actions:	Send rejection message to sender with enhanced status code<br>
 		Message: <br>
-			“Please login to your new Google Apps account.<br>
+			<blockquote>“Please login to your new Google Apps account.<br>
 			The URL is http://www.google.com<br>
 			You are no longer authorized to send email from this system.<br>
-			For support, contact our helpdesk at 714-555-1234”<br>
+			For support, contact our helpdesk at 714-555-1234”<br></blockquote>
 
 <b>POWERSHELL</b><br>
-New-TransportRule -Name ’PreventSending’ -Comments ‘’ -Priority ‘0’	-Enabled $true -FromMemberOf ‘NoSendingMailForYou@contoso.com’ -RejectMessageReasonText ‘Please login to your new Google Apps account. The URL is http://www.google.com. You are no longer authorized to send email from this system. For support, contact our helpdesk at 714-555-1234.’ -RejectMessageEnhancedStatusCode ‘5.7.1’
+<blockquote>New-TransportRule -Name ’PreventSending’ -Comments ‘’ -Priority ‘0’	-Enabled $true -FromMemberOf ‘NoSendingMailForYou@contoso.com’ -RejectMessageReasonText ‘Please login to your new Google Apps account. The URL is http://www.google.com. You are no longer authorized to send email from this system. For support, contact our helpdesk at 714-555-1234.’ -RejectMessageEnhancedStatusCode ‘5.7.1’</blockquote>
 
 <b>Step 3:</b> Add Members from a CSV file to NoSendingMailForYou Distribution Group<br>
 
 <b>POWERSHELL</b><br>
-Import-CSV FileName.csv | ForEach {Add-DistributionGroupMember -Identity "NoSendingMailForYou" -Member $_.Name}
+<blockquote>Import-CSV FileName.csv | ForEach {Add-DistributionGroupMember -Identity "NoSendingMailForYou" -Member $_.Name}</blockquote>
 
 IMPORTANT NOTE: Things to know...
 =================================
