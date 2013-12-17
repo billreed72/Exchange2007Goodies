@@ -9,27 +9,36 @@ Newer/Better Option
 <ol>
 <li>stop local delivery<br>
 <li>stop user from sending<br>
-<li>Allow users to access old Exchange mail but not send</ol><br>
-
-<b>Step 1:</b> Create a new Distribution Group<br>
-<ol>
-<ul>Members will be restricted from sending emails<br>
-<ul>Must be a universal group</ol><br>
+<li>Allow users to access old Exchange mail but not send<br>
+</ol>
 <br>
-<b>POWERSHELL</b><br>
+<b>Step 1:</b> Create a new Distribution Group<br>
+<ul>
+<li>Members will be restricted from sending emails<br>
+<li>Must be a universal group<br>
+</ul>
+<br>
+<b>Powershell</b><br>
 <blockquote>new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’</blockquote>
 
 <b>Step 2:</b> Create a new Transport Rule<br>
-<ul><li>Conditions:	From members of a distribution list<br>
- 		Choose the new distribution group<br>
-<li>Actions:	Send rejection message to sender with enhanced status code<ul><br>
-		Message: <br>
-			<blockquote>“Please login to your new Google Apps account.<br>
-			The URL is http://www.google.com<br>
-			You are no longer authorized to send email from this system.<br>
-			For support, contact our helpdesk at 714-555-1234”<br></blockquote>
+<ul>
+<li>Conditions:
+<ul>
+<li>From members of a distribution list<br>
+<li>Choose the new distribution group<br>
+</ul>
+<li>Actions:
+<ul>
+<li>Send rejection message to sender with enhanced status code<ul><br>
+Message: <br>
+<blockquote>“Please login to your new Google Apps account.<br>
+The URL is http://www.google.com.<br>
+You are no longer authorized to send email from this system.<br>
+For support, contact our helpdesk at 714-555-1234.”<br></blockquote>
+</ul>
 
-<b>POWERSHELL</b><br>
+<b>Powershell</b><br>
 <blockquote>New-TransportRule -Name ’PreventSending’ -Comments ‘’ -Priority ‘0’	-Enabled $true -FromMemberOf ‘NoSendingMailForYou@contoso.com’ -RejectMessageReasonText ‘Please login to your new Google Apps account. The URL is http://www.google.com. You are no longer authorized to send email from this system. For support, contact our helpdesk at 714-555-1234.’ -RejectMessageEnhancedStatusCode ‘5.7.1’</blockquote>
 
 <b>Step 3:</b> Add Members from a CSV file to NoSendingMailForYou Distribution Group<br>
