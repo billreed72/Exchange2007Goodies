@@ -14,7 +14,7 @@ Newer/Better Option
 <li>Must be a universal group<br></ul><br>
 <b>Powershell</b><br>
 <blockquote>
-<p style="font-family: monospace; font-size:10pt; font-style:italic">
+<p style="font-family: courier; font-size:10pt; font-style:italic">
 new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’
 </p>
 </blockquote><br>
