@@ -26,23 +26,16 @@ Newer/Better Option
 <blockquote>new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’</blockquote>
 
 <b>Step 2:</b> Create a new Transport Rule<br>
-
-<ul>
-<li>Conditions:
-</ul>
-
+Conditions:
 <ul>
 <li>From members of a distribution list<br>
 <li>Choose the new distribution group<br>
 </ul>
-
-<ul>
-<li>Actions:
-</ul>
-
+<br>
+Actions:
 <ul>
 <li>Send rejection message to sender with enhanced status code<ul><br>
-Message: <br>
+<li>Message: <br>
 <blockquote>“Please login to your new Google Apps account.<br>
 The URL is http://www.google.com.<br>
 You are no longer authorized to send email from this system.<br>
