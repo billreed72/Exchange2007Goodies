@@ -13,9 +13,9 @@ Newer/Better Option
 <ul><li>Members will be restricted from sending emails
 <li>Must be a universal group<br></ul><br>
 <b>Powershell</b><br>
-<p style="font-family: courier; font-size:10pt; font-style:italic">
+<font color="red">
 new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’
-</p>
+</font>
 <br>
 <b>Step 2:</b> Create a new Transport Rule<br>
 <b>Conditions:</b><br>
