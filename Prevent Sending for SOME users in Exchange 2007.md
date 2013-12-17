@@ -15,7 +15,7 @@ Newer/Better Option
  - Must be a universal group<br>
  <br>
  <b>POWERSHELL</b><br>
-new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’
+<blockquote>new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’</blockquote>
 
 <b>Step 2:</b> Create a new Transport Rule<br>
  - Conditions:	From members of a distribution list<br>
