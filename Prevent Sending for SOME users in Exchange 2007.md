@@ -34,14 +34,13 @@ Conditions:
 <br>
 Actions:
 <ul>
-<li>Send rejection message to sender with enhanced status code<ul><br>
-<li>Message: <br>
+<li>Send rejection message to sender with enhanced status code</ul><br>
+<b>Message: </b><br>
 <blockquote>“Please login to your new Google Apps account.<br>
 The URL is http://www.google.com.<br>
 You are no longer authorized to send email from this system.<br>
 For support, contact our helpdesk at 714-555-1234.”<br></blockquote>
-</ul>
-
+<br>
 <b>Powershell</b><br>
 <blockquote>New-TransportRule -Name ’PreventSending’ -Comments ‘’ -Priority ‘0’	-Enabled $true -FromMemberOf ‘NoSendingMailForYou@contoso.com’ -RejectMessageReasonText ‘Please login to your new Google Apps account. The URL is http://www.google.com. You are no longer authorized to send email from this system. For support, contact our helpdesk at 714-555-1234.’ -RejectMessageEnhancedStatusCode ‘5.7.1’</blockquote>
 
