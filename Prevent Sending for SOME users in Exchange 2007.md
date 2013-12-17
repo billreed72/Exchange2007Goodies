@@ -6,21 +6,23 @@ Turing the quota down with/without turning off local delivery check box... ick!<
 Newer/Better Option
 ===================
 <b>Requirements:</b><br>
-1) stop local delivery<br>
-2) stop user from sending<br>
-3) Allow users to access old Exchange mail but not send<br>
+<ol>
+<li>stop local delivery<br>
+<li>stop user from sending<br>
+<li>Allow users to access old Exchange mail but not send</ol><br>
 
 <b>Step 1:</b> Create a new Distribution Group<br>
- - Members will be restricted from sending emails<br>
- - Must be a universal group<br>
- <br>
- <b>POWERSHELL</b><br>
+<ol>
+<ul>Members will be restricted from sending emails<br>
+<ul>Must be a universal group</ol><br>
+<br>
+<b>POWERSHELL</b><br>
 <blockquote>new-DistributionGroup -Name ’NoSendingMailForYou’ -Type ‘Distribution’ -SamAccountName ’NoSendingMailForYou’ -Alias ‘NoSendingMailForYou’</blockquote>
 
 <b>Step 2:</b> Create a new Transport Rule<br>
- - Conditions:	From members of a distribution list<br>
+<ul><li>Conditions:	From members of a distribution list<br>
  		Choose the new distribution group<br>
- - Actions:	Send rejection message to sender with enhanced status code<br>
+<li>Actions:	Send rejection message to sender with enhanced status code<ul><br>
 		Message: <br>
 			<blockquote>“Please login to your new Google Apps account.<br>
 			The URL is http://www.google.com<br>
@@ -32,7 +34,7 @@ Newer/Better Option
 
 <b>Step 3:</b> Add Members from a CSV file to NoSendingMailForYou Distribution Group<br>
 
-<b>POWERSHELL</b><br>
+<b>Powershell</b><br>
 <blockquote>Import-CSV FileName.csv | ForEach {Add-DistributionGroupMember -Identity "NoSendingMailForYou" -Member $_.Name}</blockquote>
 
 IMPORTANT NOTE: Things to know...
