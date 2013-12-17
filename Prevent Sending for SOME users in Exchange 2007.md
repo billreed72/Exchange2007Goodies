@@ -1,6 +1,6 @@
 Old Option:
 ===========
-Turing the quota down with/without turning off local delivery check box... ick!
+Turing the quota down with/without turning off local delivery check box... ick!<br>
 <b>Problem:</b> Can cause mail to fail delivery.
 
 Newer/Better Option
