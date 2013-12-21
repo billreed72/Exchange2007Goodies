@@ -7,5 +7,5 @@ $OU = 'dexlab.net/Special Delivery' # Edit variable to match your environment
 $userprincipalname = $_.Firstname + '.' +  $_.Lastname + $domain
 $ExternalEmailAddress = $_.Firstname + “.” +  $_.Lastname + $domainAlias
 $name = $_.Firstname + ' ' +  $_.Lastname + ' (SD)'
-New-MailContact -ExternalEmailAddress $ExternalEmailAddress -Name $name -Alias $_.alias -OrganizationalUnit $OU -FirstName $_.Firstname -LastName $_.Lastname -HiddenFromAddressListsEnabled $True
+New-MailContact -ExternalEmailAddress $ExternalEmailAddress -Name $name -Alias $_.alias -OrganizationalUnit $OU -FirstName $_.Firstname -LastName $_.Lastname
 }
