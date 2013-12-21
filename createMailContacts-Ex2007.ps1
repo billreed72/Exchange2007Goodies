@@ -1,5 +1,5 @@
 # Edit path to userList.csv
-Import-CSV C:\userList.csv |
+Import-CSV 'C:\userList.csv' |
 foreach {
 $domain = '@dexlab.net' # Edit variable to match your environment
 $domainAlias = '@galias.dexlab.net' # Edit variable to match your environment
