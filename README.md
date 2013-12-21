@@ -10,6 +10,7 @@ Dual & Split Delivery for Exchange 2007
 <b>Step 1:</b>
 Create a userList.csv file that contains 3 column headers. (i.e. firstName,lastName,alias)
 - Sample: <a href=https://github.com/billreed72/Exchange2007Goodies/blob/master/userList.csv-SAMPLE target="_blank">userList.csv</a>
+- The sample userList.csv content was generated from a <a href=http://random-name-generator.info target="_blank">Random Name Generator</a>.
 
 <b>Step 2:</b>
 
